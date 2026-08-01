@@ -13,7 +13,11 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>반려 식물몬 도감 (최종 완성본)</title>
+    <title>야생의 식물몬 도감 | 나만의 반려식물 찾기</title>
+    <meta property="og:title" content="🌱 야생의 식물몬 도감">
+    <meta property="og:description" content="나의 환경과 성향에 딱 맞는 운명적인 반려 식물몬을 찾아보세요!">
+    <meta property="og:image" content="https://via.placeholder.com/800x400/9bbc0f/0f380f?text=Plant+Dex">
+    
     <link rel="stylesheet" href="style.css">
     
     <!-- 구글 애드센스 코드 - 수익화 -->
@@ -22,79 +26,67 @@
 <body>
     <div class="container">
         <h1>🌱 야생의 식물몬 도감</h1>
-        <p class="intro-text">"오박사: 자네의 환경과 성향을 분석하여 딱 맞는 파트너 식물몬을 찾아주겠네!"</p>
+        <p class="intro-text">"자네의 환경과 성향을 분석하여 딱 맞는 반려 식물몬을 찾아주겠네!"</p>
 
+        <!-- [직관성 개선] 질문 내용 수정 -->
         <div class="question-box">
-            <label for="sunlight">▶ 1. 파트너의 훈련소(비밀기지)의 빛(채광) 속성은?</label>
+            <label for="sunlight">▶ 1. 식물을 키울 공간의 빛(채광)은 어느 정도인가요?</label>
             <select id="sunlight">
-                <option value="high">빛이 강함 (남향/서향, 태양석의 힘)</option>
+                <option value="high">빛이 강함 (남향/서향, 빛이 오래 머무름)</option>
                 <option value="medium">빛이 적당함 (동향, 아침 햇살)</option>
-                <option value="low">어둡거나 간접광 (북향, 달빛의 힘)</option>
+                <option value="low">어둡거나 간접광 (북향, 창문 없음)</option>
             </select>
         </div>
 
         <div class="question-box">
-            <label for="airQuality">▶ 2. 훈련소의 독성(공기 오염도) 정화가 필요한가?</label>
+            <label for="airQuality">▶ 2. 실내 공기 정화가 특히 필요한 환경인가요?</label>
             <select id="airQuality">
-                <option value="high">강력한 정화 스킬 필요 (새집증후군, 냄새)</option>
+                <option value="high">매우 필요함 (새집증후군, 환기 부족, 냄새)</option>
                 <option value="normal">일반적인 상태 (보통의 실내)</option>
             </select>
         </div>
 
         <div class="question-box">
-            <label for="space">▶ 3. 파트너가 머물 필드(공간)의 크기는?</label>
+            <label for="space">▶ 3. 식물을 배치할 공간의 크기는 어떤가요?</label>
             <select id="space">
-                <option value="small">작은 포켓 필드 (책상/협탁)</option>
-                <option value="large">거대한 사파리 존 (거실/사무실 바닥)</option>
+                <option value="small">책상이나 협탁 위 (소형 공간)</option>
+                <option value="large">거실이나 사무실 바닥 (중대형 공간)</option>
             </select>
         </div>
 
         <div class="question-box">
-            <label for="location">▶ 4. 탐험할 지역의 외부 환경 특성은?</label>
+            <label for="location">▶ 4. 거주하시는 지역의 주변 환경은 어떤 편인가요?</label>
             <select id="location">
-                <option value="urban">매연이 가득한 도시 맵 (교통량/먼지 많음)</option>
-                <option value="residential">평화로운 태초마을 (주택가/자연)</option>
+                <option value="urban">도심 및 도로변 (교통량 및 먼지가 많음)</option>
+                <option value="residential">일반 주택가 및 자연 친화 지역</option>
             </select>
         </div>
 
         <div class="question-box">
-            <label for="pollution">▶ 5. 현재 맵의 미세먼지(상태 이상) 위험도는?</label>
+            <label for="pollution">▶ 5. 주변의 미세먼지나 대기 오염도는 어떤가요?</label>
             <select id="pollution">
-                <option value="high">위험함 (미세먼지 방어막 필수)</option>
-                <option value="low">안전함 (기본 정화로 충분)</option>
+                <option value="high">나쁨/높음 (강력한 공기 정화 식물 필요)</option>
+                <option value="low">보통/안전함 (기본 정화 능력으로 충분)</option>
             </select>
         </div>
 
         <div class="question-box">
-            <label for="careType">▶ 6. 트레이너(당신)의 육성 스타일은?</label>
+            <label for="careType">▶ 6. 당신의 식물 관리(육성) 스타일은 어떤가요?</label>
             <select id="careType">
-                <option value="easy">방치형 트레이너 (스스로 잘 크는 강한 녀석)</option>
-                <option value="diligent">애정형 트레이너 (자주 물을 주고 보살핌)</option>
+                <option value="easy">가끔 물을 줘도 잘 크는 튼튼한 식물 선호 (방치형)</option>
+                <option value="diligent">자주 눈맞춤하며 물을 챙겨주고 싶음 (애정형)</option>
             </select>
         </div>
 
         <div class="question-box">
-            <label for="mood">▶ 7. 파트너 식물몬과 함께 얻고 싶은 버프(효과)는?</label>
+            <label for="mood">▶ 7. 반려 식물을 통해 가장 얻고 싶은 효과(버프)는 무엇인가요?</label>
             <select id="mood">
-                <option value="healing">HP 회복 (마음의 안정과 힐링)</option>
-                <option value="interior">매력도 상승 (공간을 꾸며주는 인테리어)</option>
+                <option value="healing">업무와 일상에 지친 마음을 위로하는 힐링</option>
+                <option value="interior">공간을 생기 있고 트렌디하게 꾸며주는 인테리어</option>
             </select>
         </div>
 
         <button onclick="recommendPlant()" class="main-btn">A버튼을 눌러 파트너 찾기!</button>
-
-        <!-- 상단 광고 영역 -->
-        <div class="ad-container">
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-4136015723287267"
-                 data-ad-slot="" 
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-            <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </div>
 
         <!-- 결과 창 -->
         <div id="result-box" class="hidden">
@@ -116,8 +108,8 @@
                 <p id="plant-description" class="description retro-text"></p>
 
                 <div class="tip-box">
-                    <p><strong>▶ 서식지:</strong> <span id="plant-spot"></span></p>
-                    <p><strong>▶ 주의(상태 이상):</strong> <span id="plant-caution"></span></p>
+                    <p><strong>▶ 추천 배치 장소:</strong> <span id="plant-spot"></span></p>
+                    <p><strong>▶ 주의 및 꿀팁:</strong> <span id="plant-caution"></span></p>
                 </div>
 
                 <a id="plant-affiliate-link" href="#" target="_blank" class="affiliate-btn">
@@ -126,43 +118,44 @@
             </div>
 
             <div class="sub-recommend retro-box">
-                <h4>▶ 근처에 있는 다른 식물몬!</h4>
+                <h4>▶ 이 식물몬들도 잘 어울려요!</h4>
                 <ul id="sub-plants-list"></ul>
             </div>
 
             <div class="share-container">
-                <button onclick="shareResult()" class="share-btn">▶ 도감 데이터 통신교환(공유)</button>
-            </div>
-
-            <!-- 하단 광고 영역 -->
-            <div class="ad-container">
-                <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-client="ca-pub-4136015723287267"
-                     data-ad-slot=""
-                     data-ad-format="auto"
-                     data-full-width-responsive="true"></ins>
-                <script>
-                     (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
+                <button onclick="shareResult()" class="share-btn">▶ 도감 데이터 통신교환(결과 공유하기)</button>
             </div>
         </div>
 
         <div class="articles-section retro-box mt-30">
             <h2>▶ 트레이너 실전 가이드</h2>
             <div class="accordion-item">
-                <button class="accordion-header" onclick="toggleAccordion(this)">▷ 1. PP(수분) 보충의 3원칙</button>
+                <button class="accordion-header" onclick="toggleAccordion(this)">▷ 1. 물주기의 핵심 3원칙</button>
                 <div class="accordion-content">
-                    <p>초보 트레이너들이 가장 많이 하는 실수는 턴(주기)마다 무조건 물을 주는 것입니다. <strong>'겉흙을 2~3cm 이상 찔러보아 흙이 바짝 말랐을 때'</strong> 화분 밑으로 물이 줄줄 흘러나올 만큼 흠뻑 주는 것이 핵심입니다.</p>
+                    <p>초보 집사들이 가장 많이 하는 실수는 턴(주기)마다 무조건 물을 주는 것입니다. <strong>'겉흙을 2~3cm 이상 찔러보아 흙이 바짝 말랐을 때'</strong> 화분 밑으로 물이 줄줄 흘러나올 만큼 흠뻑 주는 것이 핵심입니다.</p>
                 </div>
             </div>
             <div class="accordion-item">
-                <button class="accordion-header" onclick="toggleAccordion(this)">▷ 2. 식물몬 필드 배치 전략</button>
+                <button class="accordion-header" onclick="toggleAccordion(this)">▷ 2. 실내 식물 배치 전략</button>
                 <div class="accordion-content">
-                    <p>공기 정화 특성을 가진 식물몬은 실내 유해 오염 물질이 가장 많이 밀집하는 <strong>바닥에서 1미터 이내 높이</strong>에 배치하는 것이 공기 질 개선에 가장 효과적입니다.</p>
+                    <p>공기 정화 식물은 실내 유해 오염 물질이 가장 많이 밀집하는 <strong>바닥에서 1미터 이내 높이</strong>에 배치하는 것이 공기 질 개선에 가장 효과적입니다.</p>
                 </div>
             </div>
         </div>
+
+        <!-- 하단 통합 광고 영역 -->
+        <div class="ad-container">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-4136015723287267"
+                 data-ad-slot=""
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
     </div>
     <script src="script.js"></script>
 </body>

@@ -2,9 +2,9 @@ const plantDatabase = [
     {
         name: "인도고무나무", nickname: "듬직한 먼지먹깨비", type: "어둠 / 바위 (그늘에서도 단단함)", skill: "미세먼지 흡수 (공기 오염도 방어력 상승)",
         image: "images/plant-1.png", subtitle: "묵묵히 당신의 공간을 지켜주는 듬직한 파트너", tags: ["#미세먼지청소기", "#듬직한매력", "#공기정화1등"],
-        spot: "거실 창가, 햇빛이 잘 드는 기지 입구", caution: "잎에 쌓인 먼지를 젖은 수건으로 가끔 닦아주세요.", link: "https://www.google.com/search?q=인도고무나무+화분+구매",
+        spot: "거실 창가, 햇빛이 잘 드는 현관 입구", caution: "잎에 쌓인 먼지를 젖은 수건으로 가끔 닦아주세요.", link: "https://www.google.com/search?q=인도고무나무+화분+구매",
         sunlight: "high", airQuality: "high", space: "large", pollution: "high", careType: "easy", mood: "healing",
-        description: "넓은 잎으로 맵 상의 미세먼지와 실내 유해물질을 묵묵히 흡수하는 고마운 식물몬입니다."
+        description: "넓은 잎으로 실내 공간의 미세먼지와 유해물질을 묵묵히 흡수하는 고마운 식물몬입니다."
     },
     {
         name: "틸란드시아", nickname: "자유로운 공중부양자", type: "비행 / 풀 (흙 없이 공중에서 생존)", skill: "공중 수분 흡수 (습도 조절)",
@@ -18,7 +18,7 @@ const plantDatabase = [
         image: "images/plant-3.png", subtitle: "어떤 환경에서도 곁을 지켜주는 강인한 생명력", tags: ["#초보자만능", "#그늘에서도쑥쑥", "#주방공기정화"],
         spot: "빛이 적은 방 안쪽, 가스레인지와 가까운 주방", caution: "성장 속도가 빠르니 가지가 길어지면 살짝 잘라주세요.", link: "https://www.google.com/search?q=스킨답서스+수경재배+구매",
         sunlight: "low", airQuality: "high", space: "small", pollution: "low", careType: "easy", mood: "healing",
-        description: "빛이 적은 동굴(북향 방)에서도 절대 쉽게 기절하지 않는 초보 트레이너용 필수 식물몬입니다."
+        description: "빛이 적은 북향 방에서도 절대 쉽게 기절하지 않는 초보 트레이너용 필수 식물몬입니다."
     },
     {
         name: "아레카 야자", nickname: "휴양지 메이커", type: "물 / 풀 (천연 가습기)", skill: "물 뿜기 (하루 1리터 수분 방출)",
@@ -39,7 +39,7 @@ const plantDatabase = [
         image: "images/plant-6.png", subtitle: "잠든 사이 맑은 산소를 내뿜는 침실의 수호천사", tags: ["#밤에산소배출", "#물주기한달", "#숙면도우미"],
         spot: "침실 머리맡, 좁은 방 책상 옆", caution: "물을 너무 자주 주면 뿌리가 썩으니 과습에 절대 주의하세요.", link: "https://www.google.com/search?q=산세베리아+화분+구매",
         sunlight: "low", airQuality: "normal", space: "small", pollution: "high", careType: "easy", mood: "healing",
-        description: "밤에 산소를 내뿜어 침실이나 좁은 공간에 두기 완벽한 수비형 파트너입니다."
+        description: "밤에 산소를 내뿜어 침실이나 좁은 공간에 두기 완벽한 수호천사 같은 반려식물입니다."
     },
     {
         name: "파키라", nickname: "머니 트리", type: "풀 / 금전 (행운을 부르는 속성)", skill: "럭키 코인 (금전운 상승 버프)",
@@ -74,14 +74,14 @@ const plantDatabase = [
         image: "images/plant-11.png", subtitle: "시원하게 뻗은 거대한 잎사귀로 완성하는 거실 정원", tags: ["#거실인테리어끝판왕", "#이국적인무드", "#대형화분"],
         spot: "채광이 부드럽게 들어오는 거실 소파 옆이나 넓은 베란다", caution: "잎이 얇아 직사광선이나 건조한 바람에 탈 수 있으니 주의해 주세요.", link: "https://www.google.com/search?q=여인초+대형화분+구매",
         sunlight: "medium", airQuality: "high", space: "large", pollution: "low", careType: "easy", mood: "interior",
-        description: "바나나 잎처럼 크고 우아한 잎사귀가 훈련소를 단숨에 밀림으로 바꿔주는 대형 식물몬입니다."
+        description: "바나나 잎처럼 크고 우아한 잎사귀가 실내 공간을 단숨에 밀림으로 바꿔주는 대형 식물몬입니다."
     },
     {
         name: "금전수", nickname: "골드 코인", type: "땅 / 금전 (건조함에 강함)", skill: "일확천금 (돈이 들어온다는 소문)",
         image: "images/plant-12.png", subtitle: "동전 모양 잎사귀에 부와 행운을 담은 돈나무", tags: ["#돈나무", "#집들이선물1위", "#극강의생명력"],
         spot: "빛이 적게 드는 현관 입구, 사무실 복도나 거실 모퉁이", caution: "뿌리와 알뿌리에 물을 저장하므로 한 달에 한 번만 물을 주세요.", link: "https://www.google.com/search?q=금전수+화분+구매",
         sunlight: "low", airQuality: "normal", space: "large", pollution: "low", careType: "easy", mood: "interior",
-        description: "반짝이는 잎이 엽전을 닮아 부유함을 상징하며 그늘 맵에서도 아주 잘 견딥니다."
+        description: "반짝이는 잎이 엽전을 닮아 부유함을 상징하며, 빛이 적은 곳에서도 아주 잘 견딥니다."
     },
     {
         name: "테이블야자", nickname: "책상 위 미니미", type: "풀 / 물 (아담한 크기와 공기정화)", skill: "초소형 정화 (암모니아 흡수)",
@@ -270,8 +270,8 @@ function recommendPlant() {
 
 function shareResult() {
     const plantName = document.getElementById("plant-name").innerText;
-    const shareTitle = "반려 식물몬 도감 결과";
-    const shareText = `나의 야생 파트너 식물몬은 [${plantName}] 입니다! 도감 데이터를 확인해 보세요.`;
+    const shareTitle = "나만의 맞춤 반려식물 찾기 결과";
+    const shareText = `나의 운명적인 반려식물은 [${plantName}] 입니다! 내 공간에 딱 맞는 식물을 추천받아 보세요.`;
     const shareUrl = window.location.href;
 
     if (navigator.share) {
@@ -283,7 +283,7 @@ function shareResult() {
     } else {
         navigator.clipboard.writeText(`${shareText}
 ${shareUrl}`).then(() => {
-            alert("도감 데이터와 링크가 복사되었습니다! 통신 교환을 위해 친구에게 붙여넣기(Ctrl+V) 하세요.");
+            alert("테스트 결과와 링크가 클립보드에 복사되었습니다! 원하는 곳에 붙여넣기(Ctrl+V) 하여 공유해 보세요.");
         });
     }
 }
