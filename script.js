@@ -1,4 +1,3 @@
-// v4.0 레트로 식물 데이터베이스 (속성, 스킬, 로컬 이미지 경로 포함)
 const plantDatabase = [
     {
         name: "인도고무나무", nickname: "듬직한 먼지먹깨비", type: "어둠 / 바위 (그늘에서도 단단함)", skill: "미세먼지 흡수 (공기 오염도 방어력 상승)",
@@ -142,7 +141,6 @@ const plantDatabase = [
     }
 ];
 
-// 레트로 8비트 효과음 생성 함수
 function playRetroSound() {
     const AudioContext = window.AudioContext || window.webkitAudioContext;
     if (!AudioContext) return; 
@@ -167,7 +165,6 @@ function playRetroSound() {
     oscillator.stop(audioCtx.currentTime + 0.5);
 }
 
-// 타이핑 애니메이션 효과 함수
 let typingTimeout;
 function typeWriterEffect(element, text, speed = 30) {
     element.innerHTML = "";
@@ -186,9 +183,7 @@ function typeWriterEffect(element, text, speed = 30) {
     type();
 }
 
-// 추천 계산 알고리즘 함수
 function recommendPlant() {
-    // 1. 오디오 효과음 재생
     playRetroSound();
 
     const userInputs = {
@@ -204,7 +199,6 @@ function recommendPlant() {
     plantDatabase.forEach(plant => {
         let score = 0;
         
-        // 기본 속성 매칭 점수
         if (plant.sunlight === userInputs.sunlight) score += 10;
         if (plant.airQuality === userInputs.airQuality) score += 10;
         if (plant.space === userInputs.space) score += 10;
@@ -212,14 +206,12 @@ function recommendPlant() {
         if (plant.careType === userInputs.careType) score += 15;
         if (plant.mood === userInputs.mood) score += 15;
         
-        // [로직 개선] 4번 질문(거주 지역)과 5번 질문(오염도)의 시너지 가산점 부여
         if (userInputs.location === "urban" && plant.pollution === "high") {
             score += 5; 
         } else if (userInputs.location === "residential" && plant.pollution === "low") {
             score += 5; 
         }
 
-        // 동점자 발생 시 항상 동일한 식물만 나오지 않도록 0~2점의 미세한 랜덤 점수 부여
         score += Math.floor(Math.random() * 3);
 
         plant.score = score;
@@ -235,7 +227,6 @@ function recommendPlant() {
     document.getElementById("plant-spot").innerText = bestPlant.spot;
     document.getElementById("plant-caution").innerText = bestPlant.caution;
     
-    // 타이핑 애니메이션 적용
     const descElement = document.getElementById("plant-description");
     typeWriterEffect(descElement, bestPlant.description);
     
@@ -277,11 +268,10 @@ function recommendPlant() {
     resultBox.scrollIntoView({ behavior: 'smooth' });
 }
 
-// SNS 공유 API 함수
 function shareResult() {
     const plantName = document.getElementById("plant-name").innerText;
-    const shareTitle = "나만의 맞춤 반려식물 찾기 결과";
-    const shareText = `나의 운명적인 반려식물은 [${plantName}] 입니다! 내 공간에 딱 맞는 식물을 추천받아 보세요.`;
+    const shareTitle = "반려 식물몬 도감 결과";
+    const shareText = `나의 야생 파트너 식물몬은 [${plantName}] 입니다! 도감 데이터를 확인해 보세요.`;
     const shareUrl = window.location.href;
 
     if (navigator.share) {
@@ -291,13 +281,13 @@ function shareResult() {
             url: shareUrl
         }).catch((error) => console.log('공유 취소 또는 오류:', error));
     } else {
-        navigator.clipboard.writeText(`${shareText}\n${shareUrl}`).then(() => {
-            alert("테스트 결과와 링크가 클립보드에 복사되었습니다! 원하는 곳에 붙여넣기(Ctrl+V) 하여 공유해 보세요.");
+        navigator.clipboard.writeText(`${shareText}
+${shareUrl}`).then(() => {
+            alert("도감 데이터와 링크가 복사되었습니다! 통신 교환을 위해 친구에게 붙여넣기(Ctrl+V) 하세요.");
         });
     }
 }
 
-// 하단 칼럼 아코디언 토글 함수
 function toggleAccordion(element) {
     const content = element.nextElementSibling;
     if (content.style.display === "block") {
