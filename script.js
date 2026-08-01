@@ -232,6 +232,8 @@ function recommendPlant() {
     
     const plantImageEl = document.getElementById("plant-image");
     plantImageEl.src = bestPlant.image;
+    plantImageEl.alt = bestPlant.name + " 픽셀 캐릭터"; 
+
     plantImageEl.onerror = function() {
         this.src = "https://via.placeholder.com/150/9bbc0f/0f380f?text=NO+IMAGE";
     };
@@ -281,8 +283,7 @@ function shareResult() {
             url: shareUrl
         }).catch((error) => console.log('공유 취소 또는 오류:', error));
     } else {
-        navigator.clipboard.writeText(`${shareText}
-${shareUrl}`).then(() => {
+        navigator.clipboard.writeText(`${shareText}\n${shareUrl}`).then(() => {
             alert("테스트 결과와 링크가 클립보드에 복사되었습니다! 원하는 곳에 붙여넣기(Ctrl+V) 하여 공유해 보세요.");
         });
     }
@@ -295,4 +296,21 @@ function toggleAccordion(element) {
     } else {
         content.style.display = "block";
     }
+}
+
+// 결과 카드 이미지 다운로드 기능
+function downloadResult() {
+    const card = document.getElementById("animation-card");
+    
+    html2canvas(card, { scale: 2, useCORS: true }).then(canvas => {
+        const imageUrl = canvas.toDataURL("image/png");
+        
+        const downloadLink = document.createElement("a");
+        downloadLink.href = imageUrl;
+        downloadLink.download = "my-plant-dex.png"; 
+        
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+        document.body.removeChild(downloadLink);
+    });
 }

@@ -14,24 +14,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>야생의 식물몬 도감 | 나만의 반려식물 찾기</title>
-    
-    <!-- SNS 공유(오픈 그래프) 최적화 태그 -->
     <meta property="og:title" content="🌱 야생의 식물몬 도감">
     <meta property="og:description" content="나의 환경과 성향에 딱 맞는 운명적인 반려 식물몬을 찾아보세요!">
-    <meta property="og:url" content="https://apple1102656-create.github.io/">
     <meta property="og:image" content="https://apple1102656-create.github.io/images/main-thumbnail.png">
     
     <link rel="stylesheet" href="style.css">
     
     <!-- 구글 애드센스 코드 - 수익화 -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4136015723287267" crossorigin="anonymous"></script>
+
+    <!-- 화면 캡처용 라이브러리 추가 -->
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 </head>
 <body>
     <div class="container">
         <h1>🌱 야생의 식물몬 도감</h1>
         <p class="intro-text">"자네의 환경과 성향을 분석하여 딱 맞는 반려 식물몬을 찾아주겠네!"</p>
 
-        <!-- 1번 질문 -->
+        <!-- 1. 빛 조건 -->
         <div class="question-box">
             <label for="sunlight">▶ 1. 식물을 키울 공간의 빛(채광)은 어느 정도인가요?</label>
             <select id="sunlight">
@@ -41,7 +41,7 @@
             </select>
         </div>
 
-        <!-- 2번 질문 -->
+        <!-- 2. 공기 정화 -->
         <div class="question-box">
             <label for="airQuality">▶ 2. 실내 공기 정화가 특히 필요한 환경인가요?</label>
             <select id="airQuality">
@@ -50,7 +50,7 @@
             </select>
         </div>
 
-        <!-- 3번 질문 -->
+        <!-- 3. 공간 크기 -->
         <div class="question-box">
             <label for="space">▶ 3. 식물을 배치할 공간의 크기는 어떤가요?</label>
             <select id="space">
@@ -59,7 +59,7 @@
             </select>
         </div>
 
-        <!-- 4번 질문 -->
+        <!-- 4. 거주 지역 -->
         <div class="question-box">
             <label for="location">▶ 4. 거주하시는 지역의 주변 환경은 어떤 편인가요?</label>
             <select id="location">
@@ -68,7 +68,7 @@
             </select>
         </div>
 
-        <!-- 5번 질문 -->
+        <!-- 5. 오염도 -->
         <div class="question-box">
             <label for="pollution">▶ 5. 주변의 미세먼지나 대기 오염도는 어떤가요?</label>
             <select id="pollution">
@@ -77,7 +77,7 @@
             </select>
         </div>
 
-        <!-- 6번 질문 -->
+        <!-- 6. 관리 성향 -->
         <div class="question-box">
             <label for="careType">▶ 6. 당신의 식물 관리(육성) 스타일은 어떤가요?</label>
             <select id="careType">
@@ -86,7 +86,7 @@
             </select>
         </div>
 
-        <!-- 7번 질문 -->
+        <!-- 7. 심리적 취향 -->
         <div class="question-box">
             <label for="mood">▶ 7. 반려 식물을 통해 가장 얻고 싶은 효과(버프)는 무엇인가요?</label>
             <select id="mood">
@@ -97,7 +97,7 @@
 
         <button onclick="recommendPlant()" class="main-btn">A버튼을 눌러 파트너 찾기!</button>
 
-        <!-- 결과 창 영역 -->
+        <!-- 결과 창 -->
         <div id="result-box" class="hidden">
             <div class="result-card dex-card" id="animation-card">
                 <span class="card-header">도감 데이터 전송 완료!</span>
@@ -133,10 +133,11 @@
 
             <div class="share-container">
                 <button onclick="shareResult()" class="share-btn">▶ 도감 데이터 통신교환(결과 공유하기)</button>
+                <!-- 이미지 저장 버튼 추가 -->
+                <button onclick="downloadResult()" class="share-btn" style="background-color: #4caf50; color: #fff; margin-top: 10px;">📷 내 결과 이미지로 저장하기</button>
             </div>
         </div>
 
-        <!-- 정보성 아티클 섹션 -->
         <div class="articles-section retro-box mt-30">
             <h2>▶ 트레이너 실전 가이드</h2>
             <div class="accordion-item">
