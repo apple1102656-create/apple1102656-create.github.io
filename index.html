@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>맞춤 반려식물 찾기 v2.5 (SEO 콘텐츠 보강)</title>
+    <title>맞춤 반려식물 찾기 (수익화 완벽 적용)</title>
     <link rel="stylesheet" href="style.css">
 
-    <!-- 구글 애드센스 인증 및 로드 스크립트 -->
-    <!-- 주의: 'client=ca-pub-0000000000000000' 부분은 나중에 본인의 애드센스 pub-ID로 변경하세요 -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0000000000000000"
+    <!-- [소유권 인증 스크립트] 회원님의 고유 ID가 적용된 애드센스 코드 -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4136015723287267"
      crossorigin="anonymous"></script>
 </head>
 <body>
@@ -82,9 +81,17 @@
 
         <button onclick="recommendPlant()" class="main-btn">나의 운명적인 반려식물 확인하기</button>
 
-        <!-- 광고 영역 1: 상단 고정 노출 -->
+        <!-- 광고 영역 1: 상단 고정 노출 (회원님 ID 사전 세팅) -->
         <div class="ad-container">
-            <span class="ad-placeholder-text">Sponsor Ad (상단 광고)</span>
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-4136015723287267"
+                 data-ad-slot="" 
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
         </div>
 
         <!-- 추천 결과 카드 영역 -->
@@ -118,15 +125,23 @@
                 <button onclick="shareResult()" class="share-btn">📲 내 결과 공유하기 / 자랑하기</button>
             </div>
 
-            <!-- 광고 영역 2: 결과창 하단 노출 -->
+            <!-- 광고 영역 2: 결과창 하단 노출 (회원님 ID 사전 세팅) -->
             <div class="ad-container">
-                <span class="ad-placeholder-text">Sponsor Ad (결과 하단 광고)</span>
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-4136015723287267"
+                     data-ad-slot=""
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
             </div>
         </div>
 
         <hr class="section-divider">
 
-        <!-- [v2.5 대폭 확장] 정보성 아티클 섹션 (총 6개 칼럼) -->
+        <!-- 정보성 아티클 섹션 (총 6개 칼럼) -->
         <div class="articles-section">
             <h2>📖 식물 집사 필수 상식 칼럼</h2>
             
@@ -150,7 +165,6 @@
                 </div>
             </div>
 
-            <!-- [추가 칼럼 3] -->
             <div class="accordion-item">
                 <button class="accordion-header" onclick="toggleAccordion(this)">
                     💡 3. 식물이 아프다는 골든타임 신호와 긴급 응급처치법
@@ -161,7 +175,6 @@
                 </div>
             </div>
 
-            <!-- [추가 칼럼 4] -->
             <div class="accordion-item">
                 <button class="accordion-header" onclick="toggleAccordion(this)">
                     💡 4. 초보 집사를 위한 분갈이 적기 판단과 흙 배합 팁
@@ -172,7 +185,6 @@
                 </div>
             </div>
 
-            <!-- [추가 칼럼 5] -->
             <div class="accordion-item">
                 <button class="accordion-header" onclick="toggleAccordion(this)">
                     💡 5. 빛이 잘 들지 않는 방을 위한 실내 플랜테리어 전략
@@ -183,7 +195,6 @@
                 </div>
             </div>
 
-            <!-- [추가 칼럼 6] -->
             <div class="accordion-item">
                 <button class="accordion-header" onclick="toggleAccordion(this)">
                     💡 6. 지긋지긋한 화분 벌레(뿌리파리, 응애) 예방 및 친환경 퇴치법
