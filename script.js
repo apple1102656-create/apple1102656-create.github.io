@@ -1,4 +1,4 @@
-// 1. 20종 식물몬 전체 데이터베이스 (메모장 기획안 순서 완벽 적용)
+// 1. 20종 식물몬 전체 데이터베이스 (7가지 질문 조건 완벽 매칭 및 이미지 순서 동기화)
 const plantsDB = [
     {
         name: "인도고무나무",
@@ -10,7 +10,7 @@ const plantsDB = [
         spot: "거실 창가, 베란다",
         caution: "잎에 먼지가 쌓이면 호흡이 어려우니 가끔 젖은 수건으로 닦아주세요.",
         image: "images/plant-1.png",
-        scoreMatch: { sunlight: "medium", space: "large", careType: "easy" }
+        scoreMatch: { sunlight: "medium", airQuality: "high", space: "large", location: "urban", pollution: "high", careType: "easy", mood: "interior" }
     },
     {
         name: "틸란드시아",
@@ -22,7 +22,7 @@ const plantsDB = [
         spot: "창가, 벽면, 책상 위",
         caution: "일주일에 1~2회 물에 10분 정도 푹 담갔다가 잘 말려주세요.",
         image: "images/plant-2.png",
-        scoreMatch: { sunlight: "medium", space: "small", careType: "easy" }
+        scoreMatch: { sunlight: "medium", airQuality: "normal", space: "small", location: "residential", pollution: "low", careType: "easy", mood: "interior" }
     },
     {
         name: "스킨답서스",
@@ -34,7 +34,7 @@ const plantsDB = [
         spot: "주방 가스레인지 주변, 어두운 실내",
         caution: "너무 길게 자라면 줄기를 잘라 물병에 꽂아보세요. 금방 뿌리를 내립니다.",
         image: "images/plant-3.png",
-        scoreMatch: { sunlight: "low", space: "small", careType: "easy" }
+        scoreMatch: { sunlight: "low", airQuality: "high", space: "small", location: "urban", pollution: "high", careType: "easy", mood: "healing" }
     },
     {
         name: "아레카 야자",
@@ -46,7 +46,7 @@ const plantsDB = [
         spot: "거실 소파 옆, 넓은 실내",
         caution: "잎 끝이 마르기 쉬우니 주변에 분무기로 물을 자주 뿌려주세요.",
         image: "images/plant-4.png",
-        scoreMatch: { sunlight: "high", space: "large", careType: "diligent" }
+        scoreMatch: { sunlight: "high", airQuality: "high", space: "large", location: "urban", pollution: "high", careType: "diligent", mood: "healing" }
     },
     {
         name: "몬스테라",
@@ -58,7 +58,7 @@ const plantsDB = [
         spot: "거실 창가, 통풍이 잘 되는 곳",
         caution: "직사광선보다는 은은한 간접광을 좋아합니다.",
         image: "images/plant-5.png",
-        scoreMatch: { sunlight: "medium", space: "large", careType: "easy" }
+        scoreMatch: { sunlight: "medium", airQuality: "normal", space: "large", location: "residential", pollution: "low", careType: "easy", mood: "interior" }
     },
     {
         name: "산세베리아",
@@ -70,7 +70,7 @@ const plantsDB = [
         spot: "침실 머리맡, 협탁 위",
         caution: "물을 너무 많이 주면 뿌리가 썩으니 한 달에 한 번만 주세요.",
         image: "images/plant-6.png",
-        scoreMatch: { sunlight: "low", space: "small", careType: "easy" }
+        scoreMatch: { sunlight: "low", airQuality: "high", space: "small", location: "urban", pollution: "low", careType: "easy", mood: "healing" }
     },
     {
         name: "파키라",
@@ -82,7 +82,7 @@ const plantsDB = [
         spot: "거실 코너, 서재",
         caution: "몸통에 물을 저장하므로 흙이 완전히 말랐을 때 물을 주세요.",
         image: "images/plant-7.png",
-        scoreMatch: { sunlight: "low", space: "large", careType: "easy" }
+        scoreMatch: { sunlight: "low", airQuality: "high", space: "large", location: "urban", pollution: "high", careType: "easy", mood: "interior" }
     },
     {
         name: "스파티필름",
@@ -94,7 +94,7 @@ const plantsDB = [
         spot: "화장실 입구, 주방",
         caution: "잎이 처지면 물이 필요하다는 뜻이니 바로 흠뻑 주세요.",
         image: "images/plant-8.png",
-        scoreMatch: { sunlight: "low", space: "small", careType: "diligent" }
+        scoreMatch: { sunlight: "low", airQuality: "high", space: "small", location: "urban", pollution: "high", careType: "diligent", mood: "healing" }
     },
     {
         name: "유칼립투스",
@@ -106,7 +106,7 @@ const plantsDB = [
         spot: "바람이 잘 통하는 창가",
         caution: "햇빛과 바람을 매우 좋아하므로 환기가 부족하면 금방 시듭니다.",
         image: "images/plant-9.png",
-        scoreMatch: { sunlight: "high", space: "small", careType: "diligent" }
+        scoreMatch: { sunlight: "high", airQuality: "normal", space: "small", location: "residential", pollution: "low", careType: "diligent", mood: "healing" }
     },
     {
         name: "스투키",
@@ -118,7 +118,7 @@ const plantsDB = [
         spot: "컴퓨터 모니터 옆, TV 선반",
         caution: "물을 자주 주면 물러서 죽을 수 있으니 한두 달에 한 번만 조금 주세요.",
         image: "images/plant-10.png",
-        scoreMatch: { sunlight: "medium", space: "small", careType: "easy" }
+        scoreMatch: { sunlight: "medium", airQuality: "normal", space: "small", location: "urban", pollution: "low", careType: "easy", mood: "interior" }
     },
     {
         name: "여인초",
@@ -130,7 +130,7 @@ const plantsDB = [
         spot: "넓은 거실, 사무실 로비",
         caution: "잎이 바람이나 충격에 의해 갈라질 수 있으나 자연스러운 현상입니다.",
         image: "images/plant-11.png",
-        scoreMatch: { sunlight: "high", space: "large", careType: "easy" }
+        scoreMatch: { sunlight: "high", airQuality: "normal", space: "large", location: "residential", pollution: "low", careType: "easy", mood: "interior" }
     },
     {
         name: "금전수",
@@ -142,7 +142,7 @@ const plantsDB = [
         spot: "거실 입구, 현관 근처",
         caution: "알뿌리에 수분을 가득 머금고 있어 과습에 매우 취약합니다.",
         image: "images/plant-12.png",
-        scoreMatch: { sunlight: "low", space: "large", careType: "easy" }
+        scoreMatch: { sunlight: "low", airQuality: "normal", space: "large", location: "urban", pollution: "low", careType: "easy", mood: "interior" }
     },
     {
         name: "테이블야자",
@@ -154,7 +154,7 @@ const plantsDB = [
         spot: "사무실 책상, 공부방",
         caution: "직사광선에 잎이 쉽게 타므로 형광등 불빛 정도의 밝기가 적당합니다.",
         image: "images/plant-13.png",
-        scoreMatch: { sunlight: "low", space: "small", careType: "easy" }
+        scoreMatch: { sunlight: "low", airQuality: "high", space: "small", location: "urban", pollution: "high", careType: "easy", mood: "interior" }
     },
     {
         name: "호접란",
@@ -166,7 +166,7 @@ const plantsDB = [
         spot: "거실 중앙, 밝은 실내",
         caution: "뿌리가 숨을 쉬어야 하므로 너무 꽉 막힌 화분과 과습을 주의하세요.",
         image: "images/plant-14.png",
-        scoreMatch: { sunlight: "medium", space: "small", careType: "diligent" }
+        scoreMatch: { sunlight: "medium", airQuality: "normal", space: "small", location: "residential", pollution: "low", careType: "diligent", mood: "interior" }
     },
     {
         name: "필로덴드론",
@@ -178,7 +178,7 @@ const plantsDB = [
         spot: "선반 위, 행잉 화분",
         caution: "빛이 너무 강하면 잎의 색이 연해지니 반음지에서 키워주세요.",
         image: "images/plant-15.png",
-        scoreMatch: { sunlight: "low", space: "small", careType: "easy" }
+        scoreMatch: { sunlight: "low", airQuality: "normal", space: "small", location: "residential", pollution: "low", careType: "easy", mood: "healing" }
     },
     {
         name: "칼라만시 오렌지",
@@ -190,7 +190,7 @@ const plantsDB = [
         spot: "햇빛이 가장 잘 드는 남향 베란다",
         caution: "꽃과 열매를 맺기 위해서는 충분한 햇빛과 영양분이 필수적입니다.",
         image: "images/plant-16.png",
-        scoreMatch: { sunlight: "high", space: "large", careType: "diligent" }
+        scoreMatch: { sunlight: "high", airQuality: "normal", space: "large", location: "residential", pollution: "low", careType: "diligent", mood: "healing" }
     },
     {
         name: "장미허브",
@@ -202,7 +202,7 @@ const plantsDB = [
         spot: "바람이 잘 통하는 햇빛 드는 창가",
         caution: "다육질 잎을 가졌으므로 물을 너무 자주 주면 잎이 노랗게 후두둑 떨어집니다.",
         image: "images/plant-17.png",
-        scoreMatch: { sunlight: "high", space: "small", careType: "easy" }
+        scoreMatch: { sunlight: "high", airQuality: "normal", space: "small", location: "residential", pollution: "low", careType: "easy", mood: "healing" }
     },
     {
         name: "아스파라거스 고사리",
@@ -214,7 +214,7 @@ const plantsDB = [
         spot: "거실 창가 틈새, 선반",
         caution: "건조함에 취약하므로 공중 습도를 높게 유지해 주셔야 잎이 누렇게 마르지 않습니다.",
         image: "images/plant-18.png",
-        scoreMatch: { sunlight: "medium", space: "small", careType: "diligent" }
+        scoreMatch: { sunlight: "medium", airQuality: "normal", space: "small", location: "residential", pollution: "low", careType: "diligent", mood: "interior" }
     },
     {
         name: "페페로미아",
@@ -226,7 +226,7 @@ const plantsDB = [
         spot: "테이블 위, 선반",
         caution: "잎에 수분을 저장하므로 흙이 완전히 마른 후 물을 주는 것이 좋습니다.",
         image: "images/plant-19.png",
-        scoreMatch: { sunlight: "medium", space: "small", careType: "easy" }
+        scoreMatch: { sunlight: "medium", airQuality: "high", space: "small", location: "urban", pollution: "low", careType: "easy", mood: "interior" }
     },
     {
         name: "홍콩야자",
@@ -238,12 +238,11 @@ const plantsDB = [
         spot: "거실, 사무실",
         caution: "추위에 약하므로 겨울철에는 베란다에서 따뜻한 실내로 들여주세요.",
         image: "images/plant-20.png",
-        scoreMatch: { sunlight: "medium", space: "large", careType: "easy" }
+        scoreMatch: { sunlight: "medium", airQuality: "high", space: "large", location: "urban", pollution: "high", careType: "easy", mood: "healing" }
     }
 ];
 
-// 2. 365일 탄생화 데이터 파싱 및 매핑 (데이터 누락 완벽 해결)
-// 1월 10일 회양목을 포함한 핵심 탄생화 기본 세팅
+// 2. 365일 탄생화 데이터 파싱 및 매핑
 const rawBirthFlowers = {
     "1-1":"스노드롭|희망", "1-2":"노랑수선화|사랑에 답하여", "1-3":"사프란|후회 없는 청춘", "1-4":"히아신스|차분한 사랑", "1-5":"노루귀|인내", 
     "1-6":"흰제비꽃|티 없는 소박함", "1-7":"튤립|실연", "1-8":"보랏빛 목련|신앙", "1-9":"노랑 제비꽃|수줍은 사랑", "1-10":"회양목|참고 견뎌냄", 
@@ -252,7 +251,7 @@ const rawBirthFlowers = {
     "1-21":"담쟁이|우정", "1-22":"이끼|모성애", "1-23":"부들|순종", "1-24":"사프란|절도의 미", "1-25":"점나도나물|순진", 
     "1-26":"미모사|예민한 마음", "1-27":"마가목|게으름을 모르는 마음", "1-28":"검은 포플러|용기", "1-29":"이끼|모성애", "1-30":"매쉬 메리골드|반드시 오고야 말 행복", "1-31":"노란 사프란|청춘의 환희",
     
-    // 대표 월별 데이터 맵핑 (모든 일자가 빠짐없이 출력되도록 안전망 제공)
+    // 대표 월별 데이터 맵핑
     "2-14":"카모밀레|역경에 굴하지 않는 강인함",
     "3-21":"벚꽃|순결, 절세미인",
     "4-15":"펜지|나를 생각해 주세요",
@@ -308,31 +307,48 @@ function updateDays() {
     }
 }
 
-// 4. 메인 추천 함수 (A버튼 클릭 시 실행)
+// 4. 메인 추천 함수 (7가지 조건 분석 반영 & 랜덤 추첨 로직)
 function recommendPlant() {
+    // 사용자가 입력한 7가지 정보 모두 가져오기
     const sunlight = document.getElementById("sunlight").value;
+    const airQuality = document.getElementById("airQuality").value;
     const space = document.getElementById("space").value;
+    const locationVal = document.getElementById("location").value;
+    const pollution = document.getElementById("pollution").value;
     const careType = document.getElementById("careType").value;
+    const mood = document.getElementById("mood").value;
+    
+    // 생년월일 가져오기
     const birthMonth = document.getElementById("birthMonth").value;
     const birthDay = document.getElementById("birthDay").value;
 
-    // 1) 조건 매칭 점수 계산
-    let bestPlant = plantsDB[0];
+    // 1) 7점 만점으로 조건 매칭 점수 계산
     let maxScore = -1;
+    let candidates = []; 
 
     plantsDB.forEach(plant => {
         let score = 0;
         if (plant.scoreMatch.sunlight === sunlight) score++;
+        if (plant.scoreMatch.airQuality === airQuality) score++;
         if (plant.scoreMatch.space === space) score++;
+        if (plant.scoreMatch.location === locationVal) score++;
+        if (plant.scoreMatch.pollution === pollution) score++;
         if (plant.scoreMatch.careType === careType) score++;
+        if (plant.scoreMatch.mood === mood) score++;
         
+        // 최고 점수 갱신 및 후보 등록
         if (score > maxScore) {
             maxScore = score;
-            bestPlant = plant;
+            candidates = [plant]; 
+        } else if (score === maxScore) {
+            candidates.push(plant); 
         }
     });
 
-    // 2) 화면(DOM)에 메인 식물 데이터 출력
+    // 2) 최고 점수를 받은 식물이 여러 개일 경우 랜덤으로 하나 뽑기
+    const bestPlant = candidates[Math.floor(Math.random() * candidates.length)];
+
+    // 3) 화면(DOM)에 메인 식물 데이터 출력
     document.getElementById("plant-subtitle").innerText = bestPlant.subtitle;
     document.getElementById("plant-name").innerText = bestPlant.name;
     document.getElementById("plant-type").innerText = bestPlant.type;
@@ -356,12 +372,12 @@ function recommendPlant() {
         tagsContainer.appendChild(span);
     });
 
-    // 3) 구글 이미지 검색 링크 동적 생성
+    // 4) 구글 이미지 검색 링크 동적 생성
     const affiliateBtn = document.getElementById("plant-affiliate-link");
     const mainPlantQuery = encodeURIComponent(bestPlant.name + " 식물 키우기");
     affiliateBtn.href = `https://www.google.com/search?tbm=isch&q=${mainPlantQuery}`;
 
-    // 4) 탄생화 매칭 및 정보 렌더링 로직 수정 (데이터에 있으면 쓰고, 없으면 기본값)
+    // 5) 탄생화 매칭 및 정보 렌더링
     const dateKey = `${birthMonth}-${birthDay}`;
     let flowerName = "";
     let flowerMeaning = "";
@@ -393,7 +409,7 @@ function recommendPlant() {
     const birthFlowerQuery = encodeURIComponent(flowerName + " 꽃");
     birthFlowerLink.href = `https://www.google.com/search?tbm=isch&q=${birthFlowerQuery}`;
 
-    // 5) 서브 추천 리스트 렌더링
+    // 6) 서브 추천 리스트 렌더링
     const subList = document.getElementById("sub-plants-list");
     subList.innerHTML = "";
     plantsDB.filter(p => p.name !== bestPlant.name).slice(0, 3).forEach(subPlant => {
@@ -402,7 +418,7 @@ function recommendPlant() {
         subList.appendChild(li);
     });
 
-    // 6) 결과 화면 노출 및 스크롤
+    // 7) 결과 화면 노출 및 스크롤
     const resultBox = document.getElementById("result-box");
     resultBox.classList.remove("hidden");
     resultBox.scrollIntoView({ behavior: 'smooth' });
