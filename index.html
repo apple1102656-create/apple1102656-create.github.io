@@ -100,30 +100,35 @@
             </select>
         </div>
 
-        <!-- 8. 탄생월 선택 -->
+        <!-- 8. 탄생월 및 탄생일 선택 (365일 수호 탄생화) -->
         <div class="question-box">
-            <label for="birthMonth">▶ 8. 당신의 탄생월은 언제인가요? (수호 탄생화 매칭)</label>
-            <select id="birthMonth">
-                <option value="1">1월</option>
-                <option value="2">2월</option>
-                <option value="3">3월</option>
-                <option value="4">4월</option>
-                <option value="5">5월</option>
-                <option value="6">6월</option>
-                <option value="7">7월</option>
-                <option value="8">8월</option>
-                <option value="9">9월</option>
-                <option value="10">10월</option>
-                <option value="11">11월</option>
-                <option value="12">12월</option>
-            </select>
+            <label>▶ 8. 당신의 생일(탄생월/일)은 언제인가요? (365일 수호 탄생화)</label>
+            <div style="display: flex; gap: 10px; margin-top: 5px;">
+                <select id="birthMonth" onchange="updateDays()" style="flex: 1;">
+                    <option value="1">1월</option>
+                    <option value="2">2월</option>
+                    <option value="3">3월</option>
+                    <option value="4">4월</option>
+                    <option value="5">5월</option>
+                    <option value="6">6월</option>
+                    <option value="7">7월</option>
+                    <option value="8">8월</option>
+                    <option value="9">9월</option>
+                    <option value="10">10월</option>
+                    <option value="11">11월</option>
+                    <option value="12">12월</option>
+                </select>
+                <select id="birthDay" style="flex: 1;">
+                    <!-- script.js의 updateDays() 함수에 의해 자동 생성됩니다 -->
+                </select>
+            </div>
         </div>
 
         <button onclick="recommendPlant()" class="main-btn">A버튼을 눌러 파트너 찾기!</button>
 
         <!-- 결과 창 -->
         <div id="result-box" class="hidden">
-            <!-- 메인 식물몬 카드 -->
+            <!-- 1) 메인 식물몬 카드 -->
             <div class="result-card dex-card" id="animation-card">
                 <span class="card-header">도감 데이터 전송 완료!</span>
                 <p id="plant-subtitle" class="subtitle"></p>
@@ -152,22 +157,22 @@
                 </a>
             </div>
 
-            <!-- 탄생월 수호 탄생화 카드 -->
+            <!-- 2) 365일 탄생일 수호 탄생화 카드 -->
             <div class="retro-box mt-20" style="background-color: #fffaf0; border: 2px solid #e67e22;">
-                <h4 style="margin: 0 0 10px 0; color: #d35400;">🎂 나의 탄생월 수호 탄생화</h4>
+                <h4 style="margin: 0 0 10px 0; color: #d35400;">🎂 나의 365일 수호 탄생화</h4>
                 <p id="birth-flower-info" style="margin: 0 0 12px 0; line-height: 1.6; font-size: 14px; color: #333;"></p>
                 <a id="birth-flower-link" href="#" target="_blank" class="affiliate-btn" style="background-color: #e67e22; border-color: #d35400;">
                     🌸 실제 탄생화(이미지) 보러 가기
                 </a>
             </div>
 
-            <!-- 서브 추천 목록 -->
+            <!-- 3) 서브 추천 리스트 -->
             <div class="sub-recommend retro-box">
                 <h4>▶ 이 식물몬들도 잘 어울려요!</h4>
                 <ul id="sub-plants-list"></ul>
             </div>
 
-            <!-- 공유 및 이미지 저장 -->
+            <!-- 4) 공유 및 이미지 다운로드 -->
             <div class="share-container">
                 <button onclick="shareResult()" class="share-btn">▶ 도감 데이터 통신교환(결과 공유하기)</button>
                 <button onclick="downloadResult()" class="share-btn" style="background-color: #4caf50; color: #fff; margin-top: 10px;">📷 내 결과 이미지로 저장하기</button>
@@ -191,7 +196,7 @@
             </div>
         </div>
 
-        <!-- 크롤러 대응 정적 콘텐츠 영역 (SEO) -->
+        <!-- SEO 및 애드센스 크롤러 지원용 정적 콘텐츠 영역 -->
         <section class="seo-content-box" style="margin-top: 40px; padding: 20px; background: #fff; border: 2px solid #000; border-radius: 8px;">
             <h2>🌿 반려식물 도감 미리보기 및 주요 정보</h2>
             <p>본 도감에서는 초보 집사도 쉽게 키울 수 있는 다양한 공기정화 식물 정보를 제공합니다. 아래 대표 식물들의 특성을 확인해 보세요.</p>

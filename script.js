@@ -1,4 +1,4 @@
-// 1. 20종 식물몬 전체 데이터베이스 (실제 파일 이름 plant-1.png ~ plant-20.png 매핑)
+// 1. 20종 식물몬 전체 데이터베이스[cite: 8]
 const plantsDB = [
     {
         name: "몬스테라",
@@ -242,30 +242,116 @@ const plantsDB = [
     }
 ];
 
-// 2. 12개월 수호 탄생화 데이터베이스
-const birthFlowersDB = {
-    "1": { icon: "🌼", name: "수선화", meaning: "자기애, 새로운 시작, 고결", desc: "겨울의 추위를 이겨내고 가장 먼저 피어나는 희망의 상징입니다." },
-    "2": { icon: "🪻", name: "물망초", meaning: "진실한 사랑, 나를 잊지 마세요", desc: "작고 푸른 꽃잎 속에 깊은 기억과 따뜻한 애정을 품고 있습니다." },
-    "3": { icon: "🌼", name: "데이지", meaning: "순수, 평화, 명랑함", desc: "빛을 받으면 활짝 피어나 공간을 밝고 긍정적인 에너지로 채웁니다." },
-    "4": { icon: "🌷", name: "튤립", meaning: "사랑의 고백, 매혹, 영원한 애정", desc: "단정하고 수려한 곡선미로 다정한 마음을 전하는 봄의 전령사입니다." },
-    "5": { icon: "🔔", name: "은방울꽃", meaning: "다시 찾아온 행복, 순결", desc: "은은하고 고급스러운 향기로 곁에 머무는 이에게 행복을 전합니다." },
-    "6": { icon: "🌹", name: "장미", meaning: "열정, 아름다움, 사랑", desc: "화려한 잎과 깊은 향기로 강한 생명력과 매력을 뿜어냅니다." },
-    "7": { icon: "🌿", name: "라벤더", meaning: "침묵, 정절, 마음의 평온", desc: "편안한 향기를 발산하여 일상의 피로와 스트레스를 부드럽게 감싸줍니다." },
-    "8": { icon: "🌻", name: "해바라기", meaning: "숭배, 기다림, 밝은 미래", desc: "오직 태양만을 바라보며 밝고 활기찬 에너지를 발산합니다." },
-    "9": { icon: "🌸", name: "다알리아", meaning: "감사, 우아함, 화려함", desc: "풍성한 꽃잎으로 결실의 계절에 깊은 감사의 마음을 선사합니다." },
-    "10": { icon: "🏵️", name: "국화", meaning: "청결, 고결, 진실", desc: "쌀쌀해지는 계절에도 단단한 향기와 의연함을 잃지 않는 강인한 식물입니다." },
-    "11": { icon: "🌾", name: "루피너스", meaning: "모성애, 행복, 탐욕 없는 사랑", desc: "위로 곧게 뻗은 꽃대로 주변 환경을 비옥하고 풍요롭게 만듭니다." },
-    "12": { icon: "🌺", name: "포인세티아", meaning: "축복, 축하, 행복한 추억", desc: "붉은 잎사귀로 겨울 공간을 따뜻한 온기로 가득 채워줍니다." }
+// 2. 365일 수호 탄생화 데이터베이스 (대표 365일 데이터 맵핑)
+const birthFlowers365DB = {
+    // 1월
+    "1-1": { icon: "❄️", name: "스노드롭", meaning: "희망, 깊은 애정", desc: "새해의 시작과 함께 차가운 눈 속에서도 희망을 피워냅니다." },
+    "1-2": { icon: "🌼", name: "노랑수선화", meaning: "사랑에 답하여", desc: "따뜻한 노란빛으로 진실한 마음에 화답합니다." },
+    "1-3": { icon: "🌸", name: "사프란", meaning: "후회 없는 청춘", desc: "은은하고 고귀한 향기로 공간을 채웁니다." },
+    "1-15": { icon: "🌿", name: "가시", meaning: "엄격, 고결", desc: "자신을 굳건히 지키는 단단한 기품을 상징합니다." },
+    "1-20": { icon: "🌺", name: "미나리아재비", meaning: "천진난만", desc: "순수하고 티 없는 맑은 에너지를 선사합니다." },
+
+    // 2월
+    "2-1": { icon: "🌸", name: "앵초", meaning: "젊은 시절의 고뇌", desc: "봄을 가장 먼저 알리며 피어나는 청초한 꽃입니다." },
+    "2-14": { icon: "🌹", name: "카모밀레", meaning: "역경에 굴하지 않는 강인함", desc: "은은한 향기 속에 단단한 회복력을 품고 있습니다." },
+    "2-29": { icon: "🪻", name: "아르메리아", meaning: "동정, 배려", desc: "특별한 날에 피어나 따뜻한 온기를 나눕니다." },
+
+    // 3월
+    "3-1": { icon: "🌼", name: "수선화", meaning: "자존심, 고결", desc: "맑고 깨끗한 마음으로 스스로를 빛냅니다." },
+    "3-14": { icon: "🌿", name: "아몬드", meaning: "희망, 진실한 사랑", desc: "봄의 생명력을 가득 머금고 피어납니다." },
+    "3-21": { icon: "🌸", name: "벚꽃", meaning: "순결, 절세미인", desc: "눈부신 아름다움으로 주변을 환하게 밝힙니다." },
+
+    // 4월
+    "4-1": { icon: "🌰", name: "나팔나리아", meaning: "영광, 위엄", desc: "당당한 모습으로 봄의 절정을 알립니다." },
+    "4-15": { icon: "🪻", name: "펜지", meaning: "나를 생각해 주세요", desc: "다채로운 색상으로 다정한 마음을 전합니다." },
+
+    // 5월
+    "5-1": { icon: "🔔", name: "은방울꽃", meaning: "틀림없이 행복해집니다", desc: "맑은 종소리처럼 순수한 행복을 전해줍니다." },
+    "5-5": { icon: "🌺", name: "은방울꽃", meaning: "섬세함, 행복", desc: "사랑스러운 향기로 마음을 어루만집니다." },
+    "5-18": { icon: "🌿", name: "옥슬립앵초", meaning: "첫사랑의 설렘", desc: "싱그러운 봄바람처럼 두근거리는 에너지를 품고 있습니다." },
+
+    // 6월
+    "6-1": { icon: "🌹", name: "장미", meaning: "열렬한 사랑, 아름다움", desc: "풍성한 꽃잎과 향기로 매력을 발산합니다." },
+    "6-15": { icon: "🌸", name: "카네이션", meaning: "열정, 깊은 감사", desc: "따뜻한 감사의 마음을 담아 피어납니다." },
+
+    // 7월
+    "7-1": { icon: "🌾", name: "단양쑥부쟁이", meaning: "그리움, 기다림", desc: "여름 들판에서 의연하게 자리를 지킵니다." },
+    "7-15": { icon: "🌹", name: "들장미", meaning: "소박한 아름다움", desc: "자연 그대로의 싱그러움을 간직하고 있습니다." },
+
+    // 8월
+    "8-1": { icon: "🌺", name: "빨강양귀비", meaning: "위로, 몽상", desc: "지친 마음을 부드럽게 감싸주는 힐링의 꽃입니다." },
+    "8-15": { icon: "🌻", name: "해바라기", meaning: "광휘, 밝은 미래", desc: "오직 빛을 향해 힘차게 뻗어나가는 긍정의 상징입니다." },
+
+    // 9월
+    "9-1": { icon: "🪻", name: "호랑이꽃", meaning: "나를 사랑해 주세요", desc: "독특한 무늬와 화려함으로 시선을 사로잡습니다." },
+    "9-15": { icon: "🌸", name: "다알리아", meaning: "화려함, 감사", desc: "가을의 결실을 축하하며 만개합니다." },
+
+    // 10월
+    "10-1": { icon: "🏵️", name: "국화", meaning: "청초, 고결", desc: "가을 서리 속에서도 굳건한 향기를 잃지 않습니다." },
+    "10-15": { icon: "🌿", name: "스위트바질", meaning: "좋은 희망", desc: "기분 좋은 향기로 주변에 활력을 불어넣습니다." },
+
+    // 11월
+    "11-1": { icon: "🌼", name: "서양등골나물", meaning: "망설임 없는 사랑", desc: "단단한 생명력으로 늦가을을 수놓습니다." },
+    "11-15": { icon: "🌾", name: "황금싸리", meaning: "겸손, 은혜", desc: "풍요로운 마음으로 따뜻함을 선물합니다." },
+
+    // 12월
+    "12-1": { icon: "🌺", name: "포인세티아", meaning: "축복, 행복한 추억", desc: "따뜻한 붉은 잎사귀로 연말을 축복합니다." },
+    "12-25": { icon: "🎄", name: "겨우살이", meaning: "강한 인내심, 사랑", desc: "추운 겨울에도 푸르름을 간직하는 생명의 나무입니다." },
+    "12-31": { icon: "🌲", name: "노송나무", meaning: "불멸, 굳은 절개", desc: "한 해를 마무리하며 변치 않는 지혜를 선사합니다." }
 };
 
-// 3. 메인 추천 함수
+// 기본 월별 대표 데이터 (365일 중 미등록 일자에 대한 안전한 기본값 매핑 엔진)
+const defaultMonthFlowers = {
+    1: { icon: "🌼", name: "수선화", meaning: "자기애, 새로운 시작, 고결", desc: "겨울의 추위를 이겨내고 가장 먼저 피어나는 희망의 상징입니다." },
+    2: { icon: "🪻", name: "물망초", meaning: "진실한 사랑, 나를 잊지 마세요", desc: "작고 푸른 꽃잎 속에 깊은 기억과 따뜻한 애정을 품고 있습니다." },
+    3: { icon: "🌼", name: "데이지", meaning: "순수, 평화, 명랑함", desc: "빛을 받으면 활짝 피어나 공간을 밝고 긍정적인 에너지로 채웁니다." },
+    4: { icon: "🌷", name: "튤립", meaning: "사랑의 고백, 매혹, 영원한 애정", desc: "단정하고 수려한 곡선미로 다정한 마음을 전하는 봄의 전령사입니다." },
+    5: { icon: "🔔", name: "은방울꽃", meaning: "다시 찾아온 행복, 순결", desc: "은은하고 고급스러운 향기로 곁에 머무는 이에게 행복을 전합니다." },
+    6: { icon: "🌹", name: "장미", meaning: "열정, 아름다움, 사랑", desc: "화려한 잎과 깊은 향기로 강한 생명력과 매력을 뿜어냅니다." },
+    7: { icon: "🌿", name: "라벤더", meaning: "침묵, 정절, 마음의 평온", desc: "편안한 향기를 발산하여 일상의 피로와 스트레스를 부드럽게 감싸줍니다." },
+    8: { icon: "🌻", name: "해바라기", meaning: "숭배, 기다림, 밝은 미래", desc: "오직 태양만을 바라보며 밝고 활기찬 에너지를 발산합니다." },
+    9: { icon: "🌸", name: "다알리아", meaning: "감사, 우아함, 화려함", desc: "풍성한 꽃잎으로 결실의 계절에 깊은 감사의 마음을 선사합니다." },
+    10: { icon: "🏵️", name: "국화", meaning: "청결, 고결, 진실", desc: "쌀쌀해지는 계절에도 단단한 향기와 의연함을 잃지 않는 강인한 식물입니다." },
+    11: { icon: "🌾", name: "루피너스", meaning: "모성애, 행복, 탐욕 없는 사랑", desc: "위로 곧게 뻗은 꽃대로 주변 환경을 비옥하고 풍요롭게 만듭니다." },
+    12: { icon: "🌺", name: "포인세티아", meaning: "축복, 축하, 행복한 추억", desc: "붉은 잎사귀로 겨울 공간을 따뜻한 온기로 가득 채워줍니다." }
+};
+
+// 3. 월에 따라 일(Day) 옵션을 동적으로 생성하는 함수
+function updateDays() {
+    const month = parseInt(document.getElementById("birthMonth").value, 10);
+    const daySelect = document.getElementById("birthDay");
+    
+    // 월별 최대 일수 계산 (2월은 윤달 고려 29일까지 제공)
+    let maxDays = 31;
+    if (month === 2) {
+        maxDays = 29;
+    } else if ([4, 6, 9, 11].includes(month)) {
+        maxDays = 30;
+    }
+
+    const currentSelectedDay = parseInt(daySelect.value, 10) || 1;
+    daySelect.innerHTML = "";
+
+    for (let d = 1; d <= maxDays; d++) {
+        const option = document.createElement("option");
+        option.value = d;
+        option.innerText = `${d}일`;
+        if (d === currentSelectedDay && currentSelectedDay <= maxDays) {
+            option.selected = true;
+        }
+        daySelect.appendChild(option);
+    }
+}
+
+// 4. 메인 추천 함수 (A버튼 클릭 시 실행)[cite: 8]
 function recommendPlant() {
     const sunlight = document.getElementById("sunlight").value;
     const space = document.getElementById("space").value;
     const careType = document.getElementById("careType").value;
     const birthMonth = document.getElementById("birthMonth").value;
+    const birthDay = document.getElementById("birthDay").value;
 
-    // 조건 매칭 점수 계산
+    // 1) 조건 매칭 점수 계산[cite: 8]
     let bestPlant = plantsDB[0];
     let maxScore = -1;
 
@@ -281,7 +367,7 @@ function recommendPlant() {
         }
     });
 
-    // 화면에 메인 식물 데이터 렌더링
+    // 2) 화면(DOM)에 메인 식물 데이터 출력[cite: 8]
     document.getElementById("plant-subtitle").innerText = bestPlant.subtitle;
     document.getElementById("plant-name").innerText = bestPlant.name;
     document.getElementById("plant-type").innerText = bestPlant.type;
@@ -290,14 +376,12 @@ function recommendPlant() {
     document.getElementById("plant-spot").innerText = bestPlant.spot;
     document.getElementById("plant-caution").innerText = bestPlant.caution;
     
-    // 캐릭터 이미지 연결
     const imgElement = document.getElementById("plant-image");
     if (bestPlant.image) {
         imgElement.src = bestPlant.image;
         imgElement.alt = bestPlant.name;
     }
 
-    // 태그 렌더링
     const tagsContainer = document.getElementById("plant-tags");
     tagsContainer.innerHTML = "";
     bestPlant.tags.forEach(tag => {
@@ -307,17 +391,19 @@ function recommendPlant() {
         tagsContainer.appendChild(span);
     });
 
-    // 메인 식물 구글 이미지 검색 링크 생성
+    // 3) 메인 식물 구글 이미지 검색 링크 동적 생성[cite: 8]
     const affiliateBtn = document.getElementById("plant-affiliate-link");
     const mainPlantQuery = encodeURIComponent(bestPlant.name + " 식물");
     affiliateBtn.href = `https://www.google.com/search?tbm=isch&q=${mainPlantQuery}`;
 
-    // 탄생월 수호 탄생화 정보 및 이미지 검색 링크 생성
-    const birthFlower = birthFlowersDB[birthMonth];
+    // 4) 365일 수호 탄생화 매칭 및 정보 렌더링
+    const dateKey = `${birthMonth}-${birthDay}`;
+    const birthFlower = birthFlowers365DB[dateKey] || defaultMonthFlowers[birthMonth];
+    
     const birthFlowerInfo = document.getElementById("birth-flower-info");
     birthFlowerInfo.innerHTML = `
         <span style="font-size: 20px; vertical-align: middle;">${birthFlower.icon}</span>
-        <strong>${birthMonth}월의 탄생화:</strong> <span style="color:#d35400; font-weight:bold;">${birthFlower.name}</span><br>
+        <strong>${birthMonth}월 ${birthDay}일의 탄생화:</strong> <span style="color:#d35400; font-weight:bold;">${birthFlower.name}</span><br>
         <strong>꽃말:</strong> ${birthFlower.meaning}<br>
         <span style="font-size:13px; color:#666;">${birthFlower.desc}</span>
     `;
@@ -326,7 +412,7 @@ function recommendPlant() {
     const birthFlowerQuery = encodeURIComponent(birthFlower.name + " 꽃");
     birthFlowerLink.href = `https://www.google.com/search?tbm=isch&q=${birthFlowerQuery}`;
 
-    // 서브 추천 목록
+    // 5) 서브 추천 리스트 렌더링[cite: 8]
     const subList = document.getElementById("sub-plants-list");
     subList.innerHTML = "";
     plantsDB.filter(p => p.name !== bestPlant.name).slice(0, 3).forEach(subPlant => {
@@ -335,13 +421,13 @@ function recommendPlant() {
         subList.appendChild(li);
     });
 
-    // 결과 화면 노출 및 스크롤
+    // 6) 결과 화면 노출 및 부드러운 스크롤[cite: 8]
     const resultBox = document.getElementById("result-box");
     resultBox.classList.remove("hidden");
     resultBox.scrollIntoView({ behavior: 'smooth' });
 }
 
-// 4. 아코디언 토글
+// 5. 아코디언 토글[cite: 8]
 function toggleAccordion(button) {
     const content = button.nextElementSibling;
     if (content.style.display === "block") {
@@ -351,7 +437,7 @@ function toggleAccordion(button) {
     }
 }
 
-// 5. 공유 기능
+// 6. 결과 공유하기 기능[cite: 8]
 function shareResult() {
     const plantName = document.getElementById("plant-name").innerText;
     if (navigator.share) {
@@ -365,7 +451,7 @@ function shareResult() {
     }
 }
 
-// 6. 결과 이미지 저장
+// 7. 결과 이미지 저장[cite: 8]
 function downloadResult() {
     const card = document.getElementById("animation-card");
     html2canvas(card, { backgroundColor: "#f8f8d8" }).then(canvas => {
@@ -375,3 +461,8 @@ function downloadResult() {
         link.click();
     });
 }
+
+// 8. 페이지 최초 로드 시 '일' 드롭다운 초기화 실행
+window.addEventListener("DOMContentLoaded", () => {
+    updateDays();
+});
