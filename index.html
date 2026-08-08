@@ -100,10 +100,30 @@
             </select>
         </div>
 
+        <!-- 8. 탄생월 선택 -->
+        <div class="question-box">
+            <label for="birthMonth">▶ 8. 당신의 탄생월은 언제인가요? (수호 탄생화 매칭)</label>
+            <select id="birthMonth">
+                <option value="1">1월</option>
+                <option value="2">2월</option>
+                <option value="3">3월</option>
+                <option value="4">4월</option>
+                <option value="5">5월</option>
+                <option value="6">6월</option>
+                <option value="7">7월</option>
+                <option value="8">8월</option>
+                <option value="9">9월</option>
+                <option value="10">10월</option>
+                <option value="11">11월</option>
+                <option value="12">12월</option>
+            </select>
+        </div>
+
         <button onclick="recommendPlant()" class="main-btn">A버튼을 눌러 파트너 찾기!</button>
 
         <!-- 결과 창 -->
         <div id="result-box" class="hidden">
+            <!-- 메인 추천 식물몬 카드 -->
             <div class="result-card dex-card" id="animation-card">
                 <span class="card-header">도감 데이터 전송 완료!</span>
                 <p id="plant-subtitle" class="subtitle"></p>
@@ -126,23 +146,35 @@
                     <p><strong>▶ 주의 및 꿀팁:</strong> <span id="plant-caution"></span></p>
                 </div>
 
-                <!-- [수정 완료] 구글 이미지 검색으로 연결되는 버튼 -->
+                <!-- 메인 식물 구글 이미지 검색 연결 버튼 -->
                 <a id="plant-affiliate-link" href="#" target="_blank" class="affiliate-btn">
                     ▶ 실제 식물몬(이미지) 보러 가기
                 </a>
             </div>
 
+            <!-- 탄생월 수호 식물몬 카드 -->
+            <div class="retro-box mt-20" style="background-color: #fffaf0; border: 2px solid #e67e22;">
+                <h4 style="margin: 0 0 10px 0; color: #d35400;">🎂 나의 탄생월 수호 탄생화</h4>
+                <p id="birth-flower-info" style="margin: 0 0 12px 0; line-height: 1.6; font-size: 14px; color: #333;"></p>
+                <a id="birth-flower-link" href="#" target="_blank" class="affiliate-btn" style="background-color: #e67e22; border-color: #d35400;">
+                    🌸 실제 탄생화(이미지) 보러 가기
+                </a>
+            </div>
+
+            <!-- 서브 추천 목록 -->
             <div class="sub-recommend retro-box">
                 <h4>▶ 이 식물몬들도 잘 어울려요!</h4>
                 <ul id="sub-plants-list"></ul>
             </div>
 
+            <!-- 공유 및 이미지 저장 -->
             <div class="share-container">
                 <button onclick="shareResult()" class="share-btn">▶ 도감 데이터 통신교환(결과 공유하기)</button>
                 <button onclick="downloadResult()" class="share-btn" style="background-color: #4caf50; color: #fff; margin-top: 10px;">📷 내 결과 이미지로 저장하기</button>
             </div>
         </div>
 
+        <!-- 가이드 아코디언 영역 -->
         <div class="articles-section retro-box mt-30">
             <h2>▶ 트레이너 실전 가이드</h2>
             <div class="accordion-item">
@@ -159,7 +191,21 @@
             </div>
         </div>
 
-        <!-- 하단 통합 광고 영역 -->
+        <!-- [핵심 보수] 크롤러 인식용 정적 콘텐츠 영역 (상시 노출) -->
+        <section class="seo-content-box" style="margin-top: 40px; padding: 20px; background: #fff; border: 2px solid #000; border-radius: 8px;">
+            <h2>🌿 반려식물 도감 미리보기 및 주요 정보</h2>
+            <p>본 도감에서는 초보 집사도 쉽게 키울 수 있는 다양한 공기정화 식물 정보를 제공합니다. 아래 대표 식물들의 특성을 확인해 보세요.</p>
+            <div style="margin-top: 15px;">
+                <h3>1. 몬스테라 (Monstera)</h3>
+                <p>찢어진 잎이 매력적인 열대 식물로, 거실 창가나 반음지에서 키우기 좋습니다. 실내 인테리어 효과와 함께 빠른 성장률을 자랑하는 인기 반려식물입니다.</p>
+                <h3>2. 스킨답서스 (Epipremnum aureum)</h3>
+                <p>어두운 환경이나 주방에서도 꿋꿋하게 살아남는 생명력 강한 덩굴 식물입니다. 특히 일산화탄소 및 유해물질 흡수 능력이 뛰어납니다.</p>
+                <h3>3. 아레카 야자 (Areca palm)</h3>
+                <p>NASA가 선정한 공기정화 식물 1위로, 뛰어난 천연 가습 효과를 자랑합니다. 건조한 실내 환경을 촉촉하게 유지해 주는 대형 반려식물입니다.</p>
+            </div>
+        </section>
+
+        <!-- 하단 광고 영역 -->
         <div class="ad-container">
             <ins class="adsbygoogle"
                  style="display:block"
@@ -172,7 +218,7 @@
             </script>
         </div>
 
-        <!-- 사이트 정보 및 푸터 영역 -->
+        <!-- 푸터 및 개인정보처리방침 링크 -->
         <footer style="margin-top: 40px; padding-top: 20px; border-top: 2px dashed #000; text-align: center; font-size: 12px; color: #555;">
             <p><strong>🌱 야생의 식물몬 도감 프로젝트</strong></p>
             <p>이 웹사이트는 바쁜 현대인들이 자신의 라이프스타일, 주거 환경, 관리 성향에 가장 완벽하게 어울리는 반려 식물을 찾을 수 있도록 돕기 위해 개발된 무료 플랫폼입니다.</p>
@@ -185,7 +231,7 @@
     </div> 
     <script src="script.js"></script>
 
-    <!-- 사전 알림 신청 영역 시작 -->
+    <!-- 사전 알림 신청 영역 -->
     <div style="margin-top: 50px; padding: 20px; background-color: #f9f9f9; border-radius: 10px; text-align: center;">
         <h3 style="color: #2c3e50; margin-bottom: 10px;">🪴 내 반려식물이 아플 때, 어디에 물어봐야 할지 막막하셨나요?</h3>
         <p style="color: #555; font-size: 14px; line-height: 1.6; margin-bottom: 20px;">
@@ -194,10 +240,7 @@
             <strong>식물 집사들을 위한 전용 커뮤니티</strong>가 곧 오픈합니다!<br>
             미리 이메일을 남겨주시면 가장 먼저 런칭 소식을 알려드릴게요.
         </p>
-
-        <!-- iframe src 안의 텍스트를 복사한 긴 주소로 바꿔주세요 -->
         <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScfU-OfLPG2yC_JlRL28IwRi_As6bhgP7tJ-Bg3mwSod7ke3A/viewform?usp=dialog" width="100%" height="400" frameborder="0" marginheight="0" marginwidth="0">로드 중…</iframe>
     </div>
-    <!-- 사전 알림 신청 영역 끝 -->
 </body>
 </html>

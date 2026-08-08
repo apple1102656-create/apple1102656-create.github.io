@@ -1,4 +1,4 @@
-// 식물 데이터베이스 (필요에 따라 식물 종류를 계속 추가하실 수 있습니다)
+// 1. 추천 식물몬 데이터베이스[cite: 8]
 const plantsDB = [
     {
         name: "몬스테라",
@@ -9,8 +9,7 @@ const plantsDB = [
         description: "찢어진 잎이 매력적인 열대 우림의 몬스터입니다. 어떤 인테리어에도 찰떡같이 어울리며 초보자도 쉽게 키울 수 있는 엄청난 생명력을 자랑합니다.",
         spot: "거실 창가, 통풍이 잘 되는 반음지",
         caution: "직사광선에 잎이 탈 수 있으니 커튼을 친 은은한 빛이 좋습니다.",
-        image: "images/monstera.png", // 준비된 이미지가 없다면 빈 칸으로 두거나 기본 이미지를 설정하세요.
-        // 점수 기준 (테스트 로직용)
+        image: "images/monstera.png",
         scoreMatch: { sunlight: "medium", space: "large", careType: "easy" }
     },
     {
@@ -39,14 +38,29 @@ const plantsDB = [
     }
 ];
 
-// 1. 메인 추천 함수 (A버튼 클릭 시 실행)
+// 2. 12개월 수호 탄생화 데이터베이스
+const birthFlowersDB = {
+    "1": { icon: "🌼", name: "수선화", meaning: "자기애, 새로운 시작, 고결", desc: "겨울의 추위를 이겨내고 가장 먼저 피어나는 희망의 상징입니다." },
+    "2": { icon: "🪻", name: "물망초", meaning: "진실한 사랑, 나를 잊지 마세요", desc: "작고 푸른 꽃잎 속에 깊은 기억과 따뜻한 애정을 품고 있습니다." },
+    "3": { icon: "🌼", name: "데이지", meaning: "순수, 평화, 명랑함", desc: "빛을 받으면 활짝 피어나 공간을 밝고 긍정적인 에너지로 채웁니다." },
+    "4": { icon: "🌷", name: "튤립", meaning: "사랑의 고백, 매혹, 영원한 애정", desc: "단정하고 수려한 곡선미로 다정한 마음을 전하는 봄의 전령사입니다." },
+    "5": { icon: "🔔", name: "은방울꽃", meaning: "다시 찾아온 행복, 순결", desc: "은은하고 고급스러운 향기로 곁에 머무는 이에게 행복을 전합니다." },
+    "6": { icon: "🌹", name: "장미", meaning: "열정, 아름다움, 사랑", desc: "화려한 잎과 깊은 향기로 강한 생명력과 매력을 뿜어냅니다." },
+    "7": { icon: "🌿", name: "라벤더", meaning: "침묵, 정절, 마음의 평온", desc: "편안한 향기를 발산하여 일상의 피로와 스트레스를 부드럽게 감싸줍니다." },
+    "8": { icon: "🌻", name: "해바라기", meaning: "숭배, 기다림, 밝은 미래", desc: "오직 태양만을 바라보며 밝고 활기찬 에너지를 발산합니다." },
+    "9": { icon: "🌸", name: "다알리아", meaning: "감사, 우아함, 화려함", desc: "풍성한 꽃잎으로 결실의 계절에 깊은 감사의 마음을 선사합니다." },
+    "10": { icon: "🏵️", name: "국화", meaning: "청결, 고결, 진실", desc: "쌀쌀해지는 계절에도 단단한 향기와 의연함을 잃지 않는 강인한 식물입니다." },
+    "11": { icon: "🌾", name: "루피너스", meaning: "모성애, 행복, 탐욕 없는 사랑", desc: "위로 곧게 뻗은 꽃대로 주변 환경을 비옥하고 풍요롭게 만듭니다." },
+    "12": { icon: "🌺", name: "포인세티아", meaning: "축복, 축하, 행복한 추억", desc: "붉은 잎사귀로 겨울 공간을 따뜻한 온기로 가득 채워줍니다." }
+};
+
+// 3. 메인 추천 함수[cite: 8]
 function recommendPlant() {
-    // 사용자가 선택한 값 가져오기
     const sunlight = document.getElementById("sunlight").value;
     const space = document.getElementById("space").value;
     const careType = document.getElementById("careType").value;
+    const birthMonth = document.getElementById("birthMonth").value;
 
-    // 간단한 추천 로직: 조건과 가장 많이 일치하는 식물 찾기
     let bestPlant = plantsDB[0];
     let maxScore = -1;
 
@@ -62,7 +76,6 @@ function recommendPlant() {
         }
     });
 
-    // 화면(DOM)에 결과 데이터 출력하기
     document.getElementById("plant-subtitle").innerText = bestPlant.subtitle;
     document.getElementById("plant-name").innerText = bestPlant.name;
     document.getElementById("plant-type").innerText = bestPlant.type;
@@ -71,14 +84,12 @@ function recommendPlant() {
     document.getElementById("plant-spot").innerText = bestPlant.spot;
     document.getElementById("plant-caution").innerText = bestPlant.caution;
     
-    // 이미지 처리 (이미지가 없으면 임시 텍스트 출력)
     const imgElement = document.getElementById("plant-image");
     if (bestPlant.image) {
         imgElement.src = bestPlant.image;
         imgElement.alt = bestPlant.name;
     }
 
-    // 태그 처리
     const tagsContainer = document.getElementById("plant-tags");
     tagsContainer.innerHTML = "";
     bestPlant.tags.forEach(tag => {
@@ -88,15 +99,26 @@ function recommendPlant() {
         tagsContainer.appendChild(span);
     });
 
-    // ----------------------------------------------------
-    // [핵심 업데이트] 구글 이미지 검색 URL 자동 생성기
-    // ----------------------------------------------------
+    // 메인 식물 구글 이미지 검색 링크 생성[cite: 8]
     const affiliateBtn = document.getElementById("plant-affiliate-link");
-    // "식물 이름 + 식물" 형태로 검색어를 인코딩하여 구글 이미지 탭으로 바로 연결합니다.
-    const searchQuery = encodeURIComponent(bestPlant.name + " 식물");
-    affiliateBtn.href = `https://www.google.com/search?tbm=isch&q=${searchQuery}`;
+    const mainPlantQuery = encodeURIComponent(bestPlant.name + " 식물");
+    affiliateBtn.href = `https://www.google.com/search?tbm=isch&q=${mainPlantQuery}`;
 
-    // 서브 추천 리스트 (1등을 제외한 나머지 식물들)
+    // 탄생월 수호 탄생화 정보 및 이미지 검색 링크 생성
+    const birthFlower = birthFlowersDB[birthMonth];
+    const birthFlowerInfo = document.getElementById("birth-flower-info");
+    birthFlowerInfo.innerHTML = `
+        <span style="font-size: 20px; vertical-align: middle;">${birthFlower.icon}</span>
+        <strong>${birthMonth}월의 탄생화:</strong> <span style="color:#d35400; font-weight:bold;">${birthFlower.name}</span><br>
+        <strong>꽃말:</strong> ${birthFlower.meaning}<br>
+        <span style="font-size:13px; color:#666;">${birthFlower.desc}</span>
+    `;
+
+    const birthFlowerLink = document.getElementById("birth-flower-link");
+    const birthFlowerQuery = encodeURIComponent(birthFlower.name + " 꽃");
+    birthFlowerLink.href = `https://www.google.com/search?tbm=isch&q=${birthFlowerQuery}`;
+
+    // 서브 추천 목록[cite: 8]
     const subList = document.getElementById("sub-plants-list");
     subList.innerHTML = "";
     plantsDB.filter(p => p.name !== bestPlant.name).forEach(subPlant => {
@@ -105,15 +127,13 @@ function recommendPlant() {
         subList.appendChild(li);
     });
 
-    // 숨겨져 있던 결과 창 보여주기
+    // 결과 화면 노출 및 스크롤[cite: 8]
     const resultBox = document.getElementById("result-box");
     resultBox.classList.remove("hidden");
-    
-    // 부드럽게 스크롤 이동
     resultBox.scrollIntoView({ behavior: 'smooth' });
 }
 
-// 2. 아코디언(가이드) 토글 함수
+// 4. 아코디언 토글[cite: 8]
 function toggleAccordion(button) {
     const content = button.nextElementSibling;
     if (content.style.display === "block") {
@@ -123,7 +143,7 @@ function toggleAccordion(button) {
     }
 }
 
-// 3. 결과 공유하기 기능 (웹 공유 API)
+// 5. 공유 기능[cite: 8]
 function shareResult() {
     const plantName = document.getElementById("plant-name").innerText;
     if (navigator.share) {
@@ -137,7 +157,7 @@ function shareResult() {
     }
 }
 
-// 4. 결과 이미지로 저장하기 (html2canvas)
+// 6. 결과 이미지 저장[cite: 8]
 function downloadResult() {
     const card = document.getElementById("animation-card");
     html2canvas(card, { backgroundColor: "#f8f8d8" }).then(canvas => {
