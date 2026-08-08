@@ -1,8 +1,8 @@
-// 1. 20종 식물몬 전체 데이터베이스 (7가지 질문 조건 완벽 매칭 및 이미지 순서 동기화)
+// 1. 20종 식물몬 전체 데이터베이스 (도감 넘버링 스타일 적용 및 사계귤 변경 완료)
 const plantsDB = [
     {
         name: "인도고무나무",
-        subtitle: "듬직한 먼지먹깨비",
+        subtitle: "No.001 [땅/풀 타입]",
         type: "땅 / 풀",
         skill: "미세먼지 흡착 (공기 정화)",
         tags: ["#공기정화", "#듬직함", "#거실추천"],
@@ -14,7 +14,7 @@ const plantsDB = [
     },
     {
         name: "틸란드시아",
-        subtitle: "자유로운 공중부양자",
+        subtitle: "No.002 [바람/풀 타입]",
         type: "바람 / 풀",
         skill: "공중 습도 조절",
         tags: ["#먼지먹는식물", "#에어플랜트", "#행잉식물"],
@@ -26,7 +26,7 @@ const plantsDB = [
     },
     {
         name: "스킨답서스",
-        subtitle: "생명력의 화신",
+        subtitle: "No.003 [풀/독 타입]",
         type: "풀 / 독",
         skill: "일산화탄소 제거",
         tags: ["#생명력갑", "#주방식물", "#수경재배"],
@@ -38,7 +38,7 @@ const plantsDB = [
     },
     {
         name: "아레카 야자",
-        subtitle: "휴양지 메이커",
+        subtitle: "No.004 [물/바람 타입]",
         type: "물 / 바람",
         skill: "천연 가습",
         tags: ["#천연가습기", "#휴양지감성", "#NASA1위"],
@@ -50,7 +50,7 @@ const plantsDB = [
     },
     {
         name: "몬스테라",
-        subtitle: "찢잎의 요정",
+        subtitle: "No.005 [풀/어둠 타입]",
         type: "풀 / 어둠",
         skill: "광합성 폭발",
         tags: ["#플랜테리어", "#찢어진잎", "#순둥이"],
@@ -62,7 +62,7 @@ const plantsDB = [
     },
     {
         name: "산세베리아",
-        subtitle: "침실의 수호천사",
+        subtitle: "No.006 [땅/독 타입]",
         type: "땅 / 독",
         skill: "야간 산소 방출",
         tags: ["#음이온", "#침실식물", "#방치형"],
@@ -74,7 +74,7 @@ const plantsDB = [
     },
     {
         name: "파키라",
-        subtitle: "머니 트리",
+        subtitle: "No.007 [풀/땅 타입]",
         type: "풀 / 땅",
         skill: "이산화탄소 포집",
         tags: ["#금전운", "#머니트리", "#개업선물"],
@@ -86,7 +86,7 @@ const plantsDB = [
     },
     {
         name: "스파티필름",
-        subtitle: "백색의 정화자",
+        subtitle: "No.008 [물/풀 타입]",
         type: "물 / 풀",
         skill: "유해물질 강력 흡수",
         tags: ["#하얀꽃", "#공기정화", "#알림요정"],
@@ -98,7 +98,7 @@ const plantsDB = [
     },
     {
         name: "유칼립투스",
-        subtitle: "코뻥 허브",
+        subtitle: "No.009 [바람/풀 타입]",
         type: "바람 / 풀",
         skill: "비염 완화 아로마",
         tags: ["#비염추천", "#허브", "#상쾌한향"],
@@ -110,7 +110,7 @@ const plantsDB = [
     },
     {
         name: "스투키",
-        subtitle: "가시방패",
+        subtitle: "No.010 [땅/불 타입]",
         type: "땅 / 불",
         skill: "전자파 차단",
         tags: ["#전자파차단", "#사무실식물", "#다육식물"],
@@ -122,7 +122,7 @@ const plantsDB = [
     },
     {
         name: "여인초",
-        subtitle: "거실의 지배자",
+        subtitle: "No.011 [풀/빛 타입]",
         type: "풀 / 빛",
         skill: "수분 발산",
         tags: ["#대형식물", "#카페감성", "#인테리어"],
@@ -134,7 +134,7 @@ const plantsDB = [
     },
     {
         name: "금전수",
-        subtitle: "골드 코인",
+        subtitle: "No.012 [땅/번개 타입]",
         type: "땅 / 번개",
         skill: "재물운 버프",
         tags: ["#돈나무", "#집들이선물", "#강인함"],
@@ -146,7 +146,7 @@ const plantsDB = [
     },
     {
         name: "테이블야자",
-        subtitle: "책상 위 미니미",
+        subtitle: "No.013 [풀/물 타입]",
         type: "풀 / 물",
         skill: "초소형 공기정화",
         tags: ["#책상식물", "#반음지", "#순둥이"],
@@ -158,7 +158,7 @@ const plantsDB = [
     },
     {
         name: "호접란",
-        subtitle: "나비무희",
+        subtitle: "No.014 [바람/빛 타입]",
         type: "바람 / 빛",
         skill: "야간 산소 생성",
         tags: ["#난초", "#우아함", "#개업선물"],
@@ -170,7 +170,7 @@ const plantsDB = [
     },
     {
         name: "필로덴드론",
-        subtitle: "하트 넝쿨",
+        subtitle: "No.015 [풀/어둠 타입]",
         type: "풀 / 어둠",
         skill: "음이온 방출",
         tags: ["#하트잎", "#덩굴식물", "#순둥이"],
@@ -181,8 +181,8 @@ const plantsDB = [
         scoreMatch: { sunlight: "low", airQuality: "normal", space: "small", location: "residential", pollution: "low", careType: "easy", mood: "healing" }
     },
     {
-        name: "칼라만시 오렌지",
-        subtitle: "비타민 볼",
+        name: "사계귤",
+        subtitle: "No.016 [빛/불 타입]",
         type: "빛 / 불",
         skill: "생기 충전 아로마",
         tags: ["#유실수", "#새콤달콤", "#홈가드닝"],
@@ -194,7 +194,7 @@ const plantsDB = [
     },
     {
         name: "장미허브",
-        subtitle: "스윗 애플민트",
+        subtitle: "No.017 [바람/풀 타입]",
         type: "바람 / 풀",
         skill: "천연 방향제",
         tags: ["#다육허브", "#달콤한향", "#미니식물"],
@@ -206,7 +206,7 @@ const plantsDB = [
     },
     {
         name: "아스파라거스 고사리",
-        subtitle: "포그 깃털",
+        subtitle: "No.018 [물/풀 타입]",
         type: "물 / 풀",
         skill: "가습 효과",
         tags: ["#여리여리", "#안개꽃느낌", "#플랜테리어"],
@@ -218,7 +218,7 @@ const plantsDB = [
     },
     {
         name: "페페로미아",
-        subtitle: "동글 미니미",
+        subtitle: "No.019 [땅/풀 타입]",
         type: "땅 / 풀",
         skill: "음이온 폭포",
         tags: ["#동글이", "#미니식물", "#수박무늬"],
@@ -230,7 +230,7 @@ const plantsDB = [
     },
     {
         name: "홍콩야자",
-        subtitle: "미니 파라솔",
+        subtitle: "No.020 [풀/나무 타입]",
         type: "풀 / 나무",
         skill: "새집증후군 타파",
         tags: ["#우산모양", "#공기정화우수", "#거실식물"],
