@@ -9,7 +9,7 @@ const plantsDB = [
         description: "찢어진 잎이 매력적인 열대 우림의 몬스터입니다. 초보자도 쉽게 키울 수 있는 강한 생명력을 자랑합니다.",
         spot: "거실 창가, 통풍이 잘 되는 반음지",
         caution: "직사광선에 잎이 탈 수 있으니 은은한 간접광에서 키워주세요.",
-        image: "images/plant-1.png", // 1번 이미지 매핑
+        image: "images/plant-1.png",
         scoreMatch: { sunlight: "medium", space: "large", careType: "easy" }
     },
     {
@@ -21,7 +21,7 @@ const plantsDB = [
         description: "흙 없이 공기 중의 수분과 먼지를 먹고 자라는 신비로운 공중 식물몬입니다.",
         spot: "공부방 책상 앞, 벽걸이 장식 선반",
         caution: "주 1~2회 분무기로 물을 뿌려주거나 물에 10분간 담갔다 말려주세요.",
-        image: "images/plant-2.png", // 2번 이미지 매핑
+        image: "images/plant-2.png",
         scoreMatch: { sunlight: "medium", space: "small", careType: "easy" }
     },
     {
@@ -33,7 +33,7 @@ const plantsDB = [
         description: "하루에 엄청난 양의 수분을 뿜어내는 천연 가습기 식물몬입니다.",
         spot: "거실 소파 옆, 베란다 내측",
         caution: "잎끝이 마르면 가위로 다듬어주고 분무를 자주 해주세요.",
-        image: "images/plant-3.png", // 3번 이미지 매핑
+        image: "images/plant-3.png",
         scoreMatch: { sunlight: "high", space: "large", careType: "diligent" }
     },
     {
@@ -281,7 +281,7 @@ function recommendPlant() {
         }
     });
 
-    // 화면에 메인 식물 데이터 렌더링[cite: 8]
+    // 화면에 메인 식물 데이터 렌더링
     document.getElementById("plant-subtitle").innerText = bestPlant.subtitle;
     document.getElementById("plant-name").innerText = bestPlant.name;
     document.getElementById("plant-type").innerText = bestPlant.type;
@@ -290,14 +290,14 @@ function recommendPlant() {
     document.getElementById("plant-spot").innerText = bestPlant.spot;
     document.getElementById("plant-caution").innerText = bestPlant.caution;
     
-    // [이미지 연동 핵심] 올바른 이미지 경로 설정[cite: 8]
+    // 캐릭터 이미지 연결
     const imgElement = document.getElementById("plant-image");
     if (bestPlant.image) {
         imgElement.src = bestPlant.image;
         imgElement.alt = bestPlant.name;
     }
 
-    // 태그 렌더링[cite: 8]
+    // 태그 렌더링
     const tagsContainer = document.getElementById("plant-tags");
     tagsContainer.innerHTML = "";
     bestPlant.tags.forEach(tag => {
@@ -307,7 +307,7 @@ function recommendPlant() {
         tagsContainer.appendChild(span);
     });
 
-    // 구글 이미지 검색 링크 동적 생성[cite: 8]
+    // 메인 식물 구글 이미지 검색 링크 생성
     const affiliateBtn = document.getElementById("plant-affiliate-link");
     const mainPlantQuery = encodeURIComponent(bestPlant.name + " 식물");
     affiliateBtn.href = `https://www.google.com/search?tbm=isch&q=${mainPlantQuery}`;
@@ -326,7 +326,7 @@ function recommendPlant() {
     const birthFlowerQuery = encodeURIComponent(birthFlower.name + " 꽃");
     birthFlowerLink.href = `https://www.google.com/search?tbm=isch&q=${birthFlowerQuery}`;
 
-    // 서브 추천 리스트 렌더링[cite: 8]
+    // 서브 추천 목록
     const subList = document.getElementById("sub-plants-list");
     subList.innerHTML = "";
     plantsDB.filter(p => p.name !== bestPlant.name).slice(0, 3).forEach(subPlant => {
@@ -335,13 +335,13 @@ function recommendPlant() {
         subList.appendChild(li);
     });
 
-    // 결과 화면 노출 및 스크롤[cite: 8]
+    // 결과 화면 노출 및 스크롤
     const resultBox = document.getElementById("result-box");
     resultBox.classList.remove("hidden");
     resultBox.scrollIntoView({ behavior: 'smooth' });
 }
 
-// 4. 아코디언 토글[cite: 8]
+// 4. 아코디언 토글
 function toggleAccordion(button) {
     const content = button.nextElementSibling;
     if (content.style.display === "block") {
@@ -351,7 +351,7 @@ function toggleAccordion(button) {
     }
 }
 
-// 5. 공유 기능[cite: 8]
+// 5. 공유 기능
 function shareResult() {
     const plantName = document.getElementById("plant-name").innerText;
     if (navigator.share) {
@@ -365,7 +365,7 @@ function shareResult() {
     }
 }
 
-// 6. 결과 이미지 저장[cite: 8]
+// 6. 결과 이미지 저장
 function downloadResult() {
     const card = document.getElementById("animation-card");
     html2canvas(card, { backgroundColor: "#f8f8d8" }).then(canvas => {
